@@ -1,6 +1,3 @@
-// Nội dung tập trung — đã dịch sang tiếng Việt.
-// Giữ nguyên tên thương hiệu/sản phẩm, tên báo chí và tên thành phố.
-// Ảnh import từ src/assets để Vite bundle (trả về URL đã hash).
 
 import GreenHero from '../assets/GreenHero.jpg'
 import LeftVelvetyHero from '../assets/LeftVelvetyHero.jpg'
@@ -18,7 +15,7 @@ export const heroLeaves = GreenHero
 export const heroProduct = LeftVelvetyHero
 export const inspiredImage = GreenPowder
 export const diagnosisImage = LineArt
-export const testimonialImage = HOLOCENA // dùng lại chai HOLOCENA
+export const testimonialImage = HOLOCENA 
 
 export const navLinks = [
   { label: 'Trang chủ', href: '#hero' },
@@ -117,7 +114,7 @@ export const routineProducts = [
     price: '$23',
     rating: '5.0',
     stars: 5,
-    image: HOLOCENA, // cùng chai HOLOCENA
+    image: HOLOCENA,
   },
   {
     id: 3,

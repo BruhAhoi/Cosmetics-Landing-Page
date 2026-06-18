@@ -3,7 +3,7 @@ import { routineFilters, routineProducts } from '../data/content.js'
 import Stars from './Stars.jsx'
 
 export default function Routine() {
-  const [active, setActive] = useState('All needs')
+  const [active, setActive] = useState(routineFilters[0])
 
   return (
     <section id="routine" className="py-20 lg:py-28">

@@ -34,7 +34,7 @@ export default function PromoColumns() {
               <p className="mt-4 text-xs uppercase tracking-[0.18em] text-mute">
                 {p.label}
               </p>
-              <h3 className="mt-2 max-w-[220px] text-xl text-ink">{p.title}</h3>
+              <h3 className="mt-2 max-w-55 text-xl text-ink">{p.title}</h3>
               <a
                 href="#"
                 className="group mt-5 inline-flex items-center gap-2 text-sm font-medium text-moss-deep"

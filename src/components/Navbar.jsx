@@ -18,7 +18,7 @@ export default function Navbar() {
         scrolled ? 'bg-cream/90 shadow-sm backdrop-blur-md' : 'bg-transparent'
       }`}
     >
-      <nav className="container-x flex h-[88px] items-center justify-between">
+      <nav className="container-x flex h-22 items-center justify-between">
         {/* Logo */}
         <a href="#hero" className="leading-none">
           <span className="font-serif text-2xl tracking-[0.18em] text-ink">
