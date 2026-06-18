@@ -1,0 +1,74 @@
+@import 'tailwindcss';
+
+/* ===== Design tokens (Velvety — beauty & wellness, sage/forest palette) ===== */
+@theme {
+  /* Palette — thang "Gray" (green-gray) từ Figma: 100=đậm → 0=trắng */
+  --color-cream: #e9eee4; /* nền trang / hero trái — xanh lá rất nhạt (~gray 10) */
+  --color-cream-deep: #dce3d3; /* gray 20 */
+  --color-sage: #aebfa0; /* gray 40 — panel sage nổi bật */
+  --color-sage-soft: #cdd6c1; /* giữa gray 20–40 */
+  --color-moss: #6f7a55; /* xanh trung — nút/điểm nhấn */
+  --color-moss-deep: #56603f;
+  --color-forest: #4d5c40; /* gray 80 — khối xanh đậm (CTA, newsletter) */
+  --color-forest-deep: #2c3724; /* gray 100 */
+  --color-ink: #2c3724; /* gray 100 — chữ đậm */
+  --color-mute: #7b8d6c; /* gray 60 — chữ phụ */
+  --color-line: #d3dac9; /* viền nhạt */
+
+  /* Typography */
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Jost', ui-sans-serif, system-ui, sans-serif;
+
+  /* Radius */
+  --radius-soft: 1.5rem;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    background-color: var(--color-cream);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-serif);
+    font-weight: 500;
+    letter-spacing: -0.01em;
+  }
+}
+
+@layer components {
+  .container-x {
+    @apply mx-auto w-full max-w-[1180px] px-6 sm:px-8 lg:px-10;
+  }
+
+  /* Eyebrow / nhãn nhỏ phía trên tiêu đề */
+  .eyebrow {
+    @apply text-xs font-medium uppercase tracking-[0.22em] text-moss;
+  }
+}
+
+@keyframes float-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-float-up {
+  animation: float-up 0.8s ease both;
+}
