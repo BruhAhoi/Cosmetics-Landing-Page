@@ -1,23 +1,26 @@
 import { featuredProducts } from '../data/content.js'
+import { useLanguage } from '../hooks/useLanguage.jsx'
 import Stars from './Stars.jsx'
+import Reveal from './Reveal.jsx'
 
 export default function FeaturedProducts() {
+  const { t, lang } = useLanguage()
   return (
     <section id="featured" className="py-20 lg:py-28">
       <div className="container-x">
-        <div className="mx-auto max-w-2xl text-center">
-          <span className="eyebrow">Sản phẩm nổi bật</span>
+        <Reveal className="mx-auto max-w-2xl text-center">
+          <span className="eyebrow">{t.featured.eyebrow}</span>
           <h2 className="mt-4 text-4xl leading-tight text-ink sm:text-5xl">
-            Chăm sóc da mặt, thiên nhiên và đạt chứng nhận hữu cơ
+            {t.featured.title}
           </h2>
-        </div>
+        </Reveal>
 
         <div className="mt-16 grid gap-8 sm:grid-cols-3">
-          {featuredProducts.map((p) => (
-            <article key={p.id} className="group text-center">
+          {featuredProducts.map((p, i) => (
+            <Reveal as="article" key={p.id} delay={i * 120} className="group text-center">
               <div
                 className={`relative flex h-80 items-center justify-center overflow-hidden rounded-soft ${
-                  p.featured ? 'bg-sage/60' : 'bg-cream-deep/60'
+                  p.featured ? 'bg-sage' : 'bg-cream-deep'
                 }`}
               >
                 <img
@@ -29,14 +32,14 @@ export default function FeaturedProducts() {
               </div>
               <div className="mt-5 flex items-center justify-between">
                 <div className="text-left">
-                  <h3 className="text-base font-medium tracking-wide text-ink">
-                    {p.name}
-                  </h3>
-                  <p className="mt-0.5 text-sm text-mute">{p.price}</p>
+                  <h3 className="text-base font-medium tracking-wide text-ink">{p.name}</h3>
+                  <p className="mt-0.5 text-sm text-mute">
+                    {lang === 'vi' ? p.priceVnd : p.priceUsd}
+                  </p>
                 </div>
                 <Stars count={p.stars} rating={p.rating} />
               </div>
-            </article>
+            </Reveal>
           ))}
         </div>
       </div>

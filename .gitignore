@@ -22,3 +22,7 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Tài liệu nội bộ (không đẩy lên repo)
+REVIEW.md
+Góp ý.txt

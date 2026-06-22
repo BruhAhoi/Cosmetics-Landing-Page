@@ -1,23 +1,22 @@
-import { footerColumns } from '../data/content.js'
+import { useLanguage } from '../hooks/useLanguage.jsx'
 
 export default function Footer() {
+  const { t } = useLanguage()
   return (
     <footer className="border-t border-line bg-cream pt-16">
       <div className="container-x">
         <div className="grid gap-10 pb-12 sm:grid-cols-2 lg:grid-cols-4">
           {/* Brand */}
           <div>
-            <span className="font-serif text-2xl tracking-[0.18em] text-ink">
-              VELVETY
-            </span>
+            <span className="font-serif text-2xl tracking-[0.18em] text-ink">VELVETY</span>
             <span className="mt-0.5 block text-[10px] italic tracking-wide text-mute">
-              chăm sóc da mặt
+              {t.footer.tagline}
             </span>
 
             <div className="mt-6">
-              <p className="text-sm font-medium text-ink">Giờ mở cửa</p>
-              <p className="mt-1 text-sm text-mute">Thứ Hai đến Thứ Bảy:</p>
-              <p className="text-sm text-mute">10:30 sáng đến 7 giờ tối</p>
+              <p className="text-sm font-medium text-ink">{t.footer.openingHours}</p>
+              <p className="mt-1 text-sm text-mute">{t.footer.days}</p>
+              <p className="text-sm text-mute">{t.footer.hours}</p>
             </div>
 
             <div className="mt-6 flex gap-3">
@@ -35,7 +34,7 @@ export default function Footer() {
           </div>
 
           {/* Link columns */}
-          {footerColumns.map((col) => (
+          {t.footer.columns.map((col) => (
             <div key={col.title}>
               <h4 className="font-sans text-sm font-semibold uppercase tracking-wider text-ink">
                 {col.title}
@@ -57,16 +56,16 @@ export default function Footer() {
         </div>
 
         <div className="flex flex-col items-center justify-between gap-3 border-t border-line py-6 text-sm text-mute sm:flex-row">
-          <p>Thiết kế bởi DhukaCreative. Cung cấp bởi UI8</p>
+          <p>{t.footer.credit}</p>
           <div className="flex gap-6">
             <a href="#" className="hover:text-moss">
-              Giấy phép
+              {t.footer.license}
             </a>
             <a href="#" className="hover:text-moss">
-              Bảo mật
+              {t.footer.privacy}
             </a>
             <a href="#" className="hover:text-moss">
-              Điều khoản
+              {t.footer.terms}
             </a>
           </div>
         </div>

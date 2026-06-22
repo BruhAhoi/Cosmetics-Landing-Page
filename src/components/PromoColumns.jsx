@@ -1,4 +1,5 @@
-import { promos } from '../data/content.js'
+import { useLanguage } from '../hooks/useLanguage.jsx'
+import Reveal from './Reveal.jsx'
 
 const icons = {
   gift: 'M20 12v10H4V12M2 7h20v5H2zM12 22V7M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7ZM12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7Z',
@@ -8,11 +9,12 @@ const icons = {
 }
 
 export default function PromoColumns() {
+  const { t } = useLanguage()
   return (
     <section className="py-12 lg:py-16">
-      <div className="container-x">
+      <Reveal className="container-x">
         <div className="grid gap-px overflow-hidden rounded-soft bg-line sm:grid-cols-3">
-          {promos.map((p) => (
+          {t.promos.map((p) => (
             <div
               key={p.label}
               className="flex flex-col items-center bg-sage-soft/60 px-6 py-10 text-center"
@@ -31,9 +33,7 @@ export default function PromoColumns() {
                   <path d={icons[p.icon]} />
                 </svg>
               </span>
-              <p className="mt-4 text-xs uppercase tracking-[0.18em] text-mute">
-                {p.label}
-              </p>
+              <p className="mt-4 text-xs uppercase tracking-[0.18em] text-mute">{p.label}</p>
               <h3 className="mt-2 max-w-55 text-xl text-ink">{p.title}</h3>
               <a
                 href="#"
@@ -45,7 +45,7 @@ export default function PromoColumns() {
             </div>
           ))}
         </div>
-      </div>
+      </Reveal>
     </section>
   )
 }

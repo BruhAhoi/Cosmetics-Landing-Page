@@ -1,4 +1,6 @@
-import { features, inspiredImage } from '../data/content.js'
+import { inspiredImage } from '../data/content.js'
+import { useLanguage } from '../hooks/useLanguage.jsx'
+import Reveal from './Reveal.jsx'
 
 const icons = {
   organic:
@@ -8,28 +10,30 @@ const icons = {
 }
 
 export default function Inspired() {
+  const { t } = useLanguage()
   return (
     <section className="py-20 lg:py-28">
       <div className="container-x grid items-center gap-14 lg:grid-cols-2">
         {/* Trái: tiêu đề + ảnh bát bột xanh */}
-        <div>
+        <Reveal>
           <h2 className="max-w-md text-4xl leading-tight text-ink sm:text-5xl">
-            Lấy cảm hứng từ tri thức truyền thống và thiên nhiên
+            {t.inspired.title}
           </h2>
-          <div className="mt-10 flex h-64 w-full max-w-md items-center justify-center rounded-soft bg-sage-soft/50 p-6">
+          {/* Nền cream để mix-blend-multiply có backdrop (Reveal tạo stacking context) */}
+          <div className="mt-10 w-fit bg-cream">
             <img
               src={inspiredImage}
               alt="Natural ingredients"
               loading="lazy"
-              className="h-full w-auto object-contain mix-blend-multiply"
+              className="h-64 w-auto object-contain mix-blend-multiply lg:h-80"
             />
           </div>
-        </div>
+        </Reveal>
 
         {/* Phải: 3 đặc điểm trên nền sage */}
-        <div className="rounded-soft bg-sage/60 p-8 sm:p-10">
+        <Reveal delay={120} className="rounded-soft bg-sage/60 p-8 sm:p-10">
           <ul className="divide-y divide-moss/15">
-            {features.map((f) => (
+            {t.inspired.features.map((f) => (
               <li key={f.title} className="flex gap-5 py-6 first:pt-0 last:pb-0">
                 <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-cream text-moss-deep">
                   <svg
@@ -47,14 +51,12 @@ export default function Inspired() {
                 </span>
                 <div>
                   <h3 className="text-xl text-ink">{f.title}</h3>
-                  <p className="mt-1.5 text-sm leading-relaxed text-ink/70">
-                    {f.desc}
-                  </p>
+                  <p className="mt-1.5 text-sm leading-relaxed text-ink/70">{f.desc}</p>
                 </div>
               </li>
             ))}
           </ul>
-        </div>
+        </Reveal>
       </div>
     </section>
   )
